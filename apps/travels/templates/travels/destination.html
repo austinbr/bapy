@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<header>
+		<a href="/travels">Home</a>
+		<a href="/">Logout</a>
+	</header>
+	<h2>{{destination}}</h2>
+	<ul>
+		<li>Planned By: {{created_by}}</li>
+		<li>Description: {{description}}</li>
+		<li>Travel Date From: {{datefrom}}</li>
+		<li>Travel Date To: {{dateto}}</li>
+	</ul>
+	<h4>Fellow Travellers:</h4>
+	{%for fellow in fellows%}
+		{%if fellow.fellowtraveller.id != request.session.userID%}
+			<ul>
+				<li>{{fellow.fellowtraveller.name}}</li>
+			</ul>
+		{%endif%}
+	{%endfor%}
+</body>
+</html>

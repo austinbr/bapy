@@ -1,0 +1,39 @@
+body > h2 {
+	margin-left: 1.5%;
+}
+
+body > p {
+	margin-left: 2.5%;
+}
+
+form {
+	padding: 10px;
+}
+
+	form > input {
+		display: block;
+		margin: 5px;
+	}
+
+#registerform {
+	margin-right: 1.5%;
+	margin-left: 1.5%;
+	display: inline-block;
+	border: 2px solid black;
+	width: 20%;
+	vertical-align: top;
+}
+
+#loginform {
+	margin-left: 1.5%;
+	display: inline-block;
+	border: 2px solid black;
+	width: 20%;
+	vertical-align: top;
+}
+
+#errors {
+	margin-left: 1.5%;
+	margin-top: 5px;
+	color: red;
+}

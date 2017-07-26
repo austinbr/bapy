@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{%load staticfiles%}
+	<link rel="stylesheet" type="text/css" href="{%static 'travels/css/dashboard.css'%}">
+</head>
+<body>
+	<header>
+		<a href="/">Logout</a>
+	</header>
+	<h2>Welcome, {{curruser}}!</h2>
+	<table>
+		<strong>Your Trip Schedules:</strong>
+		<tr>
+			<th>Destination</th>
+			<th>Travel Start Date</th>
+			<th>Travel End Date</th>
+			<th>Plan</th>
+		</tr>
+		{%for destination in destinations%}
+		<tr>
+			<td><a href="/travels/destination/{{destination.id}}">{{destination.destination}}</a></td>
+			<td>{{destination.datefrom}}</td>
+			<td>{{destination.dateto}}</td>
+			<td>{{destination.description}}</td>
+		</tr>
+		{%endfor%}
+	</table>
+	<br>
+	<table>
+		<strong>Other Travellers' Trips:</strong>
+		<tr>
+			<th>Destination</th>
+			<th>Travel Start Date</th>
+			<th>Travel End Date</th>
+			<th>Plan</th>
+			<th>Join?</th>
+		</tr>
+		{%for destination in otherdestinations%}
+		<tr>
+			<td><a href="/travels/destination/{{destination.id}}">{{destination.destination}}</a></td>
+			<td>{{destination.datefrom}}</td>
+			<td>{{destination.dateto}}</td>
+			<td>{{destination.description}}</td>
+			<td><a href="/travels/joinprocess/{{destination.id}}">Join</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	<br>
+	<a href="/travels/add">Add Travel Plan</a>
+</body>
+</html>

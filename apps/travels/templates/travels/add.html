@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<header>
+		<a href="/travels">Home</a>
+		<a href="/">Logout</a>
+	</header>
+	<h2>Add a Trip</h2>
+	<form method='POST' action='/travels/process'>
+		{%csrf_token%}
+		Destination:<input type="text" name="destination" required>
+		Description:<input type="text" name="description" required>
+		Travel Date From:<input type="date" name="datefrom" required>
+		Travel Date To:<input type="date" name="dateto" required>
+		<!-- <input type="hidden" name="datenow">
+		<input type="hidden" name=""> -->
+		<input type="submit" name="addtrip">
+	</form>
+</body>
+</html>

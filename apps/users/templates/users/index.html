@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{%load staticfiles%}
+	<link rel="stylesheet" type="text/css" href="{%static 'users/css/index.css'%}">
+</head>
+<body>
+	<h2>Hello World!</h2>
+	<p>Register Here!</p>
+	<form action='/register' method='POST' id='registerform'>
+		{%csrf_token%}
+		<input type="text" name="name" placeholder="Enter your name." required>
+		<input type="text" name="username" placeholder="Enter your username." required>
+		<input type="email" name="email" placeholder="Enter your email." required>
+		<input type="password" name="password" placeholder="Enter your password." required>
+		<input type="password" name="c_password" placeholder="Confirm your password." required>
+		<br>
+		<input type="submit" name="register" value = 'Register!' style='margin-top: 10px;'>
+	</form>
+	<br>
+	<p>Log in here!</p>
+	<form action='/login' method='POST' id='loginform'>
+		{%csrf_token%}
+		<!-- <input type="email" name="email" placeholder="Enter your email." required> -->
+		<input type="text" name="username" placeholder="Enter your username." required>
+		<input type="password" name="password" placeholder="Enter your password." required>
+		<br>
+		<input type="submit" name="login" value='Login!' style='margin-top: 10px;'>
+	</form>
+	<br>
+	<div id='errors'>
+	{%if messages%}
+		{%for message in messages%}
+			{%if message.tags == 'error'%}
+				<div style="color: red;">{{message}}<div>
+			{%endif%}
+			{%if message.tags == 'success'%}
+				<div style="color: green;">{{message}}<div>
+			{%endif%}
+		{%endfor%}
+	{%endif%}
+	</div>
+</body>
+</html>
